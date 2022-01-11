@@ -1,6 +1,8 @@
 package com.example.madyoutubeapi.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
@@ -23,5 +25,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        menu=findViewById(R.id.menu_bawah);
+
+        setFragment(homeFragment);
+
     }
+
+    private void setFragment(Fragment fragment) {
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.main_frame,fragment);
+        ft.commit();
+    }
+
 }

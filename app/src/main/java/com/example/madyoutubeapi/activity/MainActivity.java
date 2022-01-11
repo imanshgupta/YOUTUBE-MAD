@@ -1,10 +1,12 @@
 package com.example.madyoutubeapi.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.madyoutubeapi.R;
 import com.example.madyoutubeapi.fragment.HomeFragment;
@@ -12,6 +14,7 @@ import com.example.madyoutubeapi.fragment.PlaylistFragment;
 import com.example.madyoutubeapi.fragment.ProfileFragment;
 import com.example.madyoutubeapi.fragment.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +32,37 @@ public class MainActivity extends AppCompatActivity {
         menu=findViewById(R.id.menu_bawah);
 
         setFragment(homeFragment);
+        menu.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.isChecked()){
+                    return true;
+                }else{
+                    switch (item.getItemId()){
+                        case R.id.menu_home:
+                            setFragment(homeFragment);
+                            getSupportActionBar().setTitle("HOME");
+                            return true;
+                        case R.id.menu_playlist:
+                            setFragment(playlistFragment);
+                            getSupportActionBar().setTitle("PLAYLIST");
+                            return true;
+                        case R.id.menu_search:
+                            setFragment(searchFragment);
+                            getSupportActionBar().setTitle("SEARCH");
+                            return true;
+                        case R.id.menu_profile:
+                            setFragment(profileFragment);
+                            getSupportActionBar().setTitle("PROFILE");
+                            return true;
+                        default:
+                            setFragment(homeFragment);
+                            getSupportActionBar().setTitle("HOME");
+                           return true;
+                    }
+                }
+            }
+        });
 
     }
 

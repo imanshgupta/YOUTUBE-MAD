@@ -14,4 +14,24 @@ public class ModelHome {
     @Expose
     private List< VideoYT > items;
 
+    public ModelHome(String nextPageToken, List<VideoYT> items) {
+        this.nextPageToken = nextPageToken;
+        this.items = items;
+    }
+
+    public String getNextPageToken() {
+        return nextPageToken;
+    }
+
+    public void setNextPageToken(String nextPageToken) {
+        this.nextPageToken = nextPageToken;
+    }
+
+    public List<VideoYT> getItems() {
+        return items;
+    }
+
+    public void setItems(List<VideoYT> items) {
+        this.items = items;
+    }
 }

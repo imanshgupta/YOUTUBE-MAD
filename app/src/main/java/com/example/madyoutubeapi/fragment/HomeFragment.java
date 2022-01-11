@@ -3,12 +3,18 @@ package com.example.madyoutubeapi.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.madyoutubeapi.R;
+import com.example.madyoutubeapi.adapter.AdapterHome;
+import com.example.madyoutubeapi.models.VideoYT;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +22,14 @@ import com.example.madyoutubeapi.R;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    private AdapterHome adapter;
+    private LinearLayoutManager manager;
+    private List<VideoYT> videoList = new ArrayList<>();
+
+
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

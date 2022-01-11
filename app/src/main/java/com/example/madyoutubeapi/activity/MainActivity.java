@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 if(item.isChecked()){
                     return true;
                 }else{
+                    //to get the current id of the navigator button pressed and then to choose that
+                    //an alternate to the 3rd MAD program of fragments insetead of INTEGER variable
                     switch (item.getItemId()){
                         case R.id.menu_home:
                             setFragment(homeFragment);
